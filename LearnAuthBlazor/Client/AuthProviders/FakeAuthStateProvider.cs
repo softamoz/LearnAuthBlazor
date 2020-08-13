@@ -23,7 +23,7 @@ namespace LearnAuthBlazor.Client.AuthProviders
             }, "Test And Fake");
 
 
-            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(user)));
+            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(anonymous)));
         }
     }
 }
