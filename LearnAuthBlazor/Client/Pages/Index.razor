@@ -1,7 +1,7 @@
 ﻿@page "/"
 @using System.Security.Claims
 
-<AuthorizeView>
+<AuthorizeView Roles="Admin">
     <Authorized>
         <p style="color: lime">Authorized User... Role is : @context.User.FindFirst(ClaimTypes.Role).Value</p>
     </Authorized>
