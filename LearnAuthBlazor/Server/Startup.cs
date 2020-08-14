@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using LearnAuthBlazor.Server.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace LearnAuthBlazor.Server
 {
@@ -25,6 +28,10 @@ namespace LearnAuthBlazor.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+
+            services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<Context>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +53,13 @@ namespace LearnAuthBlazor.Server
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
+
             app.UseRouting();
+
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
