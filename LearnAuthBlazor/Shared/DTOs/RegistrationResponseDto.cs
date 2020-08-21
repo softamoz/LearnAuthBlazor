@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LearnAuthBlazor.Server.DTOs
+namespace LearnAuthBlazor.Shared.DTOs
 {
     public class RegistrationResponseDto
     {

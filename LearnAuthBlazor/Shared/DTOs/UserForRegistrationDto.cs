@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LearnAuthBlazor.Server.DTOs
+namespace LearnAuthBlazor.Shared.DTOs
 {
     public class UserForRegistrationDto
     {
