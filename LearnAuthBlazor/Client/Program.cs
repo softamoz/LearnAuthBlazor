@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
 using LearnAuthBlazor.Client.AuthProviders;
+using LearnAuthBlazor.Client.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,8 @@ namespace LearnAuthBlazor.Client
             builder.Services.AddAuthorizationCore();
 
             builder.Services.AddScoped<AuthenticationStateProvider, FakeAuthStateProvider>();
+
+            builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
             await builder.Build().RunAsync();
         }
